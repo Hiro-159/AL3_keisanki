@@ -46,6 +46,7 @@ namespace AL3_keisanki
             InitializeComponent();
         }
 
+        //----「0」～「9」の数字ボタン----
         private void button1_Click(object sender, EventArgs e)
         {
             //「１」ボタン
@@ -57,9 +58,6 @@ namespace AL3_keisanki
             }
             if(mode != 0)
             {
-                /*inputArray2(test, arrayIndex2, array2);
-                showArray(array2, arrayIndex2);
-                */
                 array2[arrayIndex2] = test;
                 if (arrayIndex2 < array2.Length + 1)
                 {
@@ -74,8 +72,6 @@ namespace AL3_keisanki
         {
             //「２」ボタン
             test = 2;
-            //inputArray(test, arrayIndex, array);
-            //showArray(array, arrayIndex);
             if (mode == 0)
             {
                 inputArray(test, arrayIndex, array);
@@ -83,9 +79,6 @@ namespace AL3_keisanki
             }
             if (mode != 0)
             {
-                /*inputArray2(test, arrayIndex2, array2);
-                showArray(array2, arrayIndex2);
-                */
                 array2[arrayIndex2] = test;
                 if (arrayIndex2 < array2.Length + 1)
                 {
@@ -303,7 +296,19 @@ namespace AL3_keisanki
 
             }
         }
+        //----
 
+
+        //「+」ボタン
+        private void button14_Click(object sender, EventArgs e)
+        {
+            //+ボタン
+            label1.Text = "+";
+            mode = 1;
+        }
+
+
+        //「－」ボタン
         private void button11_Click(object sender, EventArgs e)
         {
             //-ボタン
@@ -311,6 +316,17 @@ namespace AL3_keisanki
             mode = 2;
         }
 
+
+        //「×」ボタン
+        private void button15_Click(object sender, EventArgs e)
+        {
+            //×ボタン
+            label1.Text = "×";
+            mode = 3;
+        }
+
+
+        //「÷」ボタン
         private void button12_Click(object sender, EventArgs e)
         {
             //÷ボタン
@@ -318,16 +334,16 @@ namespace AL3_keisanki
             mode = 4;
         }
 
+
+        //「＝」ボタン
         private void button13_Click(object sender, EventArgs e)
         {
-            //label1.Text = "=";
-            //label1.Text = (test + 3).ToString();
-            //showArray(array, arrayIndex);
-            int printout = calculate(array, array2, arrayIndex, arrayIndex2, mode);
-            label1.Text = printout.ToString();
+            //「＝」ボタン
+            label1.Text = calculate(array, array2, arrayIndex, arrayIndex2, mode).ToString();
         }
 
-        
+
+        //CLRボタン
         private void button16_Click(object sender, EventArgs e)
         {
             //CLRボタン
@@ -345,10 +361,12 @@ namespace AL3_keisanki
             showArray(array, arrayIndex);
         }
 
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
 
         private void inputArray (int inNum,int index, int[] inArray)
         {
@@ -358,8 +376,6 @@ namespace AL3_keisanki
                 if (arrayIndex < inArray.Length+1)
                 arrayIndex++;
             }
-            
-
         }
 
         private void showArray(int[] array, int index)
@@ -412,24 +428,16 @@ namespace AL3_keisanki
             return num;
         }
 
-        private void button14_Click(object sender, EventArgs e)
-        {
-            //+ボタン
-            label1.Text = "+";
-            mode = 1;
-        }
 
+
+        //デバック用ボタン
         private void button18_Click(object sender, EventArgs e)
         {
-            
-            showArray(array2, 4);
+            //デバック用ボタン
+            //array2の値を表示する
+            showArray(array2, 5);
         }
 
-        private void button15_Click(object sender, EventArgs e)
-        {
-            //×ボタン
-            label1.Text = "×";
-            mode = 3;
-        }
+        
     }
 }
